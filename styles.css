@@ -631,20 +631,21 @@ ul, ol {
 .navbar__mobile-panel {
     position: fixed;
     top: 0;
+    left: 0;
     right: 0;
     bottom: 0;
-    width: 85%;
-    max-width: 330px;
-    height: 100%;
+    width: 100vw;
+    max-width: 100vw;
+    height: 100vh;
     height: 100dvh;
     background-color: #FFFFFF;
     margin: 0;
     display: flex;
     flex-direction: column;
-    box-shadow: -10px 0 40px rgba(15, 23, 42, 0.26);
+    box-shadow: none;
     transform: translateX(100%);
-    transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
-    padding: var(--space-lg);
+    transition: transform 0.34s cubic-bezier(0.16, 1, 0.3, 1);
+    padding: calc(1rem + env(safe-area-inset-top, 0px)) 1.25rem calc(1.5rem + env(safe-area-inset-bottom, 0px)) 1.25rem;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     text-align: right !important;
@@ -663,70 +664,115 @@ ul, ol {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-bottom: var(--space-md);
-    border-bottom: 1px solid var(--border-subtle);
-    margin-bottom: var(--space-md);
+    padding-bottom: 0.85rem;
+    border-bottom: 1.5px solid var(--border-subtle);
+    margin-bottom: 0.85rem;
+    flex-shrink: 0;
 }
 
 .navbar__mobile-close {
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: var(--radius-md);
-    background: #F8FAFC;
-    border: 1px solid var(--border-subtle);
+    background: #F1F5F9;
+    border: 1.5px solid #CBD5E1;
     color: var(--color-text-main);
+    cursor: pointer;
     transition: all var(--transition-fast);
+    touch-action: manipulation;
 }
 
-.navbar__mobile-close:hover {
-    background: rgba(239, 68, 68, 0.1);
+.navbar__mobile-close:hover,
+.navbar__mobile-close:active {
+    background: rgba(239, 68, 68, 0.12);
     color: #DC2626;
-    border-color: rgba(239, 68, 68, 0.3);
+    border-color: rgba(239, 68, 68, 0.4);
+    transform: scale(0.94);
 }
 
 .navbar__mobile-links {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 0.5rem;
     flex-grow: 1;
     text-align: right !important;
+    overflow-y: auto;
+    padding: 0.25rem 0;
 }
 
 .navbar__mobile-link {
     display: flex;
     align-items: center;
-    padding: 0.8rem 1.1rem;
-    font-size: 0.95rem;
+    justify-content: space-between;
+    padding: 0.85rem 1.15rem;
+    font-size: 1rem;
     font-weight: 700;
     color: var(--color-text-main);
     border-radius: var(--radius-md);
+    background: #F8FAFC;
+    border: 1px solid rgba(203, 213, 225, 0.7);
     transition: all var(--transition-fast);
     text-align: right !important;
+    min-height: 48px;
+}
+
+.navbar__mobile-link::after {
+    content: "←";
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    transition: transform var(--transition-fast), color var(--transition-fast);
 }
 
 .navbar__mobile-link:hover,
-.navbar__mobile-link.is-active {
-    background-color: rgba(29, 78, 216, 0.08);
+.navbar__mobile-link:active {
+    background-color: #EFF6FF;
+    border-color: var(--color-brand-primary);
     color: var(--color-brand-primary);
-    transform: translateX(-4px);
+    transform: translateX(-3px);
+}
+
+.navbar__mobile-link:hover::after,
+.navbar__mobile-link:active::after {
+    color: var(--color-brand-primary);
+    transform: translateX(-3px);
+}
+
+.navbar__mobile-link.is-active {
+    background: linear-gradient(135deg, var(--color-brand-primary) 0%, #2563EB 100%);
+    color: #FFFFFF !important;
+    border-color: var(--color-brand-primary);
+    box-shadow: 0 4px 14px rgba(29, 78, 216, 0.35);
+}
+
+.navbar__mobile-link.is-active::after {
+    color: #FFFFFF;
 }
 
 .navbar__mobile-footer {
     padding-top: var(--space-md);
-    border-top: 1px solid var(--border-subtle);
+    border-top: 1.5px solid var(--border-subtle);
+    margin-top: var(--space-sm);
     display: flex;
     flex-direction: column;
-    gap: var(--space-sm);
+    gap: 0.65rem;
     text-align: center;
+    flex-shrink: 0;
 }
 
 .navbar__mobile-meta {
-    font-size: 0.8125rem;
+    font-size: 0.85rem;
     color: var(--color-text-muted);
     text-align: center;
+    font-weight: 600;
+}
+
+.navbar__mobile-meta strong {
+    color: var(--color-brand-primary);
 }
 
 /* ─── 8. SPA VIEW ROUTER SYSTEM ─── */
