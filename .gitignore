@@ -1,0 +1,19 @@
+# OS generated files
+.DS_Store
+Thumbs.db
+*.lnk
+
+# Editor / IDE directories
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node modules / caches
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.parcel-cache/
+dist/
+build/
