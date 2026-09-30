@@ -518,6 +518,8 @@ ul, ol {
     display: none;
     width: 44px;
     height: 44px;
+    min-width: 44px;
+    min-height: 44px;
     align-items: center;
     justify-content: center;
     border-radius: var(--radius-md);
@@ -526,11 +528,22 @@ ul, ol {
     box-shadow: 0 3px 10px rgba(15, 23, 42, 0.08);
     cursor: pointer;
     transition: all var(--transition-fast);
+    padding: 0;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    position: relative;
+    z-index: 1002;
+    flex-shrink: 0;
 }
 
 .navbar__toggle:hover {
     background: #F8FAFC;
     border-color: var(--color-brand-primary);
+}
+
+.navbar__toggle:active {
+    transform: scale(0.94);
 }
 
 .hamburger-box {
@@ -539,22 +552,65 @@ ul, ol {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    pointer-events: none;
+    position: relative;
 }
 
 .hamburger-line {
+    display: block;
     width: 100%;
     height: 2px;
     background-color: var(--color-text-main);
     border-radius: 2px;
-    transition: transform var(--transition-fast), opacity var(--transition-fast);
+    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease, background-color 0.2s ease;
+    pointer-events: none;
+    transform-origin: center;
+}
+
+/* Morph 3 lines to X when active */
+.navbar__toggle.is-active {
+    background: #EFF6FF;
+    border-color: var(--color-brand-primary);
+    box-shadow: 0 4px 14px rgba(29, 78, 216, 0.25);
+}
+
+.navbar__toggle.is-active .hamburger-line {
+    background-color: var(--color-brand-primary);
+}
+
+.navbar__toggle.is-active .hamburger-line:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+}
+
+.navbar__toggle.is-active .hamburger-line:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.navbar__toggle.is-active .hamburger-line:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
 }
 
 /* ─── 7. MOBILE DRAWER NAVIGATION (CENTERED) ─── */
 .navbar__mobile-drawer {
     position: fixed;
-    inset: 0;
-    z-index: 1100;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    z-index: 99999;
     display: flex;
+    visibility: hidden;
+    pointer-events: none;
+    transition: visibility 0.3s ease;
+}
+
+.navbar__mobile-drawer.is-open {
+    visibility: visible;
+    pointer-events: auto;
 }
 
 .navbar__mobile-drawer[hidden] {
@@ -564,10 +620,12 @@ ul, ol {
 .navbar__mobile-backdrop {
     position: absolute;
     inset: 0;
-    background-color: rgba(15, 23, 42, 0.4);
-    backdrop-filter: blur(4px);
+    background-color: rgba(15, 23, 42, 0.5);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
 }
 
 .navbar__mobile-panel {
@@ -575,20 +633,22 @@ ul, ol {
     top: 0;
     right: 0;
     bottom: 0;
-    width: 84%;
+    width: 85%;
     max-width: 330px;
     height: 100%;
+    height: 100dvh;
     background-color: #FFFFFF;
     margin: 0;
     display: flex;
     flex-direction: column;
-    box-shadow: -8px 0 36px rgba(15, 23, 42, 0.22);
+    box-shadow: -10px 0 40px rgba(15, 23, 42, 0.26);
     transform: translateX(100%);
     transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
     padding: var(--space-lg);
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     text-align: right !important;
-    z-index: 1101;
+    z-index: 100000;
 }
 
 .navbar__mobile-drawer.is-open .navbar__mobile-backdrop {
@@ -3629,21 +3689,40 @@ ul, ol {
     }
 
     .navbar__inner {
-        padding: 0;
+        padding: 0 0.75rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.5rem;
+    }
+
+    .navbar__brand {
+        gap: 0.5rem;
+        min-width: 0;
     }
 
     .navbar__brand-title {
-        font-size: 1.05rem;
+        font-size: 1rem;
+        white-space: nowrap;
     }
 
     .navbar__logo-img {
         width: 34px;
         height: 34px;
+        flex-shrink: 0;
+    }
+
+    .navbar__actions {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        flex-shrink: 0;
     }
 
     .navbar__cta {
-        padding: 0.5rem 0.95rem;
+        padding: 0.45rem 0.8rem;
         font-size: 0.8125rem;
+        white-space: nowrap;
     }
 
     .navbar__cta svg {
@@ -3651,8 +3730,12 @@ ul, ol {
     }
 
     .navbar__toggle {
-        width: 42px;
-        height: 42px;
+        display: flex !important;
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+        min-height: 44px;
+        flex-shrink: 0;
     }
 
     /* Hero on Mobile */

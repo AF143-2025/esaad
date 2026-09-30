@@ -74,7 +74,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     
     <!-- Modern Enterprise Stylesheet -->
-    <link rel="stylesheet" href="styles.css?v=21.0">
+    <link rel="stylesheet" href="styles.css?v=22.0">
 </head>
 <body>
 
@@ -119,46 +119,46 @@
                     </button>
                 </div>
             </div>
-
-            <!-- Mobile Drawer Navigation -->
-            <div class="navbar__mobile-drawer" id="navMobileMenu" hidden>
-                <div class="navbar__mobile-backdrop"></div>
-                <div class="navbar__mobile-panel">
-                    <div class="navbar__mobile-header">
-                        <div class="navbar__brand-text">
-                            <span class="navbar__brand-title">شركة اصعد</span>
-                            <span class="navbar__brand-tag">GO uptm</span>
-                        </div>
-                        <button type="button" class="navbar__mobile-close" id="navMobileClose" aria-label="إغلاق القائمة">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
-                                <line x1="18" y1="6" x2="6" y2="18"></line>
-                                <line x1="6" y1="6" x2="18" y2="18"></line>
-                            </svg>
-                        </button>
-                    </div>
-                    <nav class="navbar__mobile-links">
-                        <a href="#home" class="navbar__mobile-link is-active" data-route="home">الرئيسية</a>
-                        <a href="#services" class="navbar__mobile-link" data-route="services">الخدمات العامة</a>
-                        <a href="#programming" class="navbar__mobile-link" data-route="programming">هندسة البرمجيات</a>
-                        <a href="#cybersecurity" class="navbar__mobile-link" data-route="cybersecurity">الأمن السيبراني</a>
-                        <a href="#social-media" class="navbar__mobile-link" data-route="social-media">التسويق الرقمي</a>
-                        <a href="#portfolio" class="navbar__mobile-link" data-route="portfolio">أعمالنا</a>
-                        <a href="#about" class="navbar__mobile-link" data-route="about">من نحن</a>
-                        <a href="#faq" class="navbar__mobile-link" data-route="faq">الأسئلة الشائعة</a>
-                        <a href="#contact" class="navbar__mobile-link" data-route="contact">تواصل معنا</a>
-                    </nav>
-                    <div class="navbar__mobile-footer">
-                        <a href="https://t.me/GOUP202" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--full">
-                            <span>ابدأ مشروعك عبر Telegram</span>
-                        </a>
-                        <div class="navbar__mobile-meta">
-                            <span>المعرف الرسمي عبر Telegram: <strong>@GOUP202</strong></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </nav>
     </header>
+
+    <!-- Mobile Drawer Navigation (Direct body child to prevent stacking & backdrop-filter trapping) -->
+    <div class="navbar__mobile-drawer" id="navMobileMenu" hidden aria-hidden="true">
+        <div class="navbar__mobile-backdrop"></div>
+        <div class="navbar__mobile-panel">
+            <div class="navbar__mobile-header">
+                <div class="navbar__brand-text">
+                    <span class="navbar__brand-title">شركة اصعد</span>
+                    <span class="navbar__brand-tag">GO uptm</span>
+                </div>
+                <button type="button" class="navbar__mobile-close" id="navMobileClose" aria-label="إغلاق القائمة">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <nav class="navbar__mobile-links">
+                <a href="#home" class="navbar__mobile-link is-active" data-route="home">الرئيسية</a>
+                <a href="#services" class="navbar__mobile-link" data-route="services">الخدمات العامة</a>
+                <a href="#programming" class="navbar__mobile-link" data-route="programming">هندسة البرمجيات</a>
+                <a href="#cybersecurity" class="navbar__mobile-link" data-route="cybersecurity">الأمن السيبراني</a>
+                <a href="#social-media" class="navbar__mobile-link" data-route="social-media">التسويق الرقمي</a>
+                <a href="#portfolio" class="navbar__mobile-link" data-route="portfolio">أعمالنا</a>
+                <a href="#about" class="navbar__mobile-link" data-route="about">من نحن</a>
+                <a href="#faq" class="navbar__mobile-link" data-route="faq">الأسئلة الشائعة</a>
+                <a href="#contact" class="navbar__mobile-link" data-route="contact">تواصل معنا</a>
+            </nav>
+            <div class="navbar__mobile-footer">
+                <a href="https://t.me/GOUP202" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--full">
+                    <span>ابدأ مشروعك عبر Telegram</span>
+                </a>
+                <div class="navbar__mobile-meta">
+                    <span>المعرف الرسمي عبر Telegram: <strong>@GOUP202</strong></span>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- ═══════════════════════════════════ MAIN APPLICATION VIEWS ═══════════════════════════════════ -->
     <main id="mainContent">
