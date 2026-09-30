@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 180">
+  <defs>
+    <clipPath id="clip">
+      <rect width="420" height="180"/>
+    </clipPath>
+  </defs>
+  
+  <!-- AD Logo Mark -->
+  <g transform="translate(50, 8)">
+    <!-- Letter A - Blue -->
+    <path d="M0 110 L40 0 L60 0 L100 110 L78 110 L68 82 L32 82 L22 110 Z M38 64 L62 64 L50 28 Z" fill="#1A6FC4"/>
+    
+    <!-- Letter D - Red (overlapping) -->
+    <path d="M72 0 L72 110 L110 110 C145 110 165 88 165 55 C165 22 145 0 110 0 Z M94 20 L108 20 C132 20 143 35 143 55 C143 75 132 90 108 90 L94 90 Z" fill="#D42B2B"/>
+  </g>
+  
+  <!-- Arabic Company Name -->
+  <text x="310" y="70" text-anchor="start" font-family="Tajawal, Arial, sans-serif" font-size="32" font-weight="800" fill="#1C1C28">شركة اصعد</text>
+  
+  <!-- English Name -->
+  <text x="310" y="108" text-anchor="start" font-family="Tajawal, Arial, sans-serif" font-size="24" font-weight="700" fill="#4A4A5E">GO uptm</text>
+</svg>

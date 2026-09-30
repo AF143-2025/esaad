@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 130">
+  <!-- AD Logo Mark Only (for navbar/small displays) -->
+  <g transform="translate(10, 5)">
+    <!-- Letter A - Blue -->
+    <path d="M0 110 L40 0 L60 0 L100 110 L78 110 L68 82 L32 82 L22 110 Z M38 64 L62 64 L50 28 Z" fill="#1A6FC4"/>
+    
+    <!-- Letter D - Red (overlapping) -->
+    <path d="M72 0 L72 110 L110 110 C145 110 165 88 165 55 C165 22 145 0 110 0 Z M94 20 L108 20 C132 20 143 35 143 55 C143 75 132 90 108 90 L94 90 Z" fill="#D42B2B"/>
+  </g>
+</svg>
